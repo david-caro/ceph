@@ -471,7 +471,7 @@ class Module(MgrModule):
         elif command['prefix'] == 'balancer pool ls':
             pool_ids = self.get_module_option('pool_ids')
             if pool_ids == '':
-                return (0, '', '')
+                return (0, 'All pools added, set pool_ids to limit.', '')
             pool_ids = pool_ids.split(',')
             pool_ids = [int(p) for p in pool_ids]
             pool_name_by_id = dict((p['pool'], p['pool_name']) for p in self.get_osdmap().dump().get('pools', []))
